@@ -1,4 +1,7 @@
 
+var mainEl = document.getElementById("main");
+var timerEl = document.getElementById("countdown");
+var bodyEl = document.createElement("div");
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
@@ -49,7 +52,8 @@ function generateQuiz (questions, quizContainer, resultsContainer, submitButton)
 
     //show the questions
     showQuestions(questions, quizContainer),
-    var myQuestions = [{
+    var myQuestions = [
+    {
     question: "1. Which of these values is NOT considered false?",
     answers: {
         a: '0',
@@ -108,3 +112,36 @@ function generateQuiz (questions, quizContainer, resultsContainer, submitButton)
         showResults(questions, quizContainer, resultsContainer);
     }
 }
+
+var count = 0;
+
+function countdown() {
+  var timeLeft = 50;
+
+  var timeInterval = setInterval(function () {
+    timerEl.textContent = timeLeft + " seconds remaining";
+    timeLeft--;
+
+    if (timeLeft === 0) {
+      timerEl.textContent = "";
+      confirmAnswer();
+      clearInterval(timeInterval);
+    }
+
+  }, 1000);
+}
+
+function confirmAnswer() {
+
+    var confirmAnswer = setInterval(function () {
+      if (words[count] === undefined) {
+        clearInterval(questionInterval);
+      } else {
+        mainEl.textContent = words[count];
+        count++;
+      }
+  
+    }, wordsPerSecond);
+  }
+  
+  prepareRead();
