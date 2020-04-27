@@ -23,3 +23,7 @@ body{
 #submit:hover{
     background-color: #3a8;
 }
+
+.hide {
+    display: none;
+}

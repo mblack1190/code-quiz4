@@ -51,7 +51,7 @@ function generateQuiz (questions, quizContainer, resultsContainer, submitButton)
     }
 
     //show the questions
-    showQuestions(questions, quizContainer),
+    showQuestions(questions, quizContainer);
     var myQuestions = [
     {
     question: "1. Which of these values is NOT considered false?",
