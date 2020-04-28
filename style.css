@@ -27,3 +27,7 @@ body{
 .hide {
     display: none;
 }
+.choice {
+    margin: 1rem;
+    padding: 3px;
+}
