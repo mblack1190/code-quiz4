@@ -38,6 +38,7 @@ var timerEl = document.getElementById("timer")
 var questionTitle = document.getElementById("question-title");
 var choicesEl = document.getElementById("choices")
 var responseEl = document.getElementById("response");
+var submitScoreBtn = document.getElementById("submit");
 var Q = 0;
 var time = 60;
 var timerId;
@@ -53,6 +54,7 @@ function clockTick() {
 
 
 startBtn.addEventListener("click", startGame);
+submitScoreBtn.addEventListener("click", saveHighScore);
 
 function buildQuestionCard() {
     var currentQuestion = myQuestions[Q];
@@ -113,6 +115,17 @@ function endQuiz() {
     var scoreEl =  document.createElement("h5");
     scoreEl.textContent = "Your score is " + score;
     endScreen.appendChild(scoreEl);
+ 
+}
+function saveHighScore() {
+    var initialsEl = document.getElementById("initials")
+    var initials = initialsEl.value.trim();
+    console.log(initials);
+    var savedScore = {
+        score: time,
+        initials: initials,
+    }
+    console.log(savedScore)
 }
 function startGame() {
     startScreen.setAttribute("class", "hide");
